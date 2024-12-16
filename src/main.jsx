@@ -11,7 +11,7 @@ import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
-      <div className="flex flex-col min-h-screen">
+      <div className=" flex flex-col min-h-screen">
         <header>
           <Navbar />
         </header>

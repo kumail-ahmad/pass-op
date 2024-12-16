@@ -1,6 +1,18 @@
 // import React from "react";
 
+import { useRef } from "react";
+
 const Manager = () => {
+  const ref = useRef();
+  const showPassword = () => {
+    // alert("password was shown");
+    if (ref.current.src.includes("icons/hidden.png")) {
+      ref.current.src = "icons/eye.png";
+    } else {
+      ref.current.src = "icons/hidden.png";
+    }
+  };
+
   return (
     <>
       <div className="absolute top-0 z-[-2] h-screen w-screen rotate-180 transform bg-white bg-[radial-gradient(70%_120%_at_50%_50%,hsla(0,0%,100%,0)_0,rgba(262,205,258,.5)_100%)]"></div>
@@ -32,7 +44,17 @@ const Manager = () => {
                 placeholder="Enter Password"
                 className="border  border-red-400 m-2 w-full rounded-full px-4 py-1"
               />
-              <span className="absolute right-0.5 top-3.5"> <img className="cursor-pointer"width="22" src="/icons/eye.png" alt="" /></span>
+              <span className="absolute right-0.5 top-3.5">
+                {" "}
+                <img
+                  ref={ref}
+                  onClick={showPassword}
+                  className="cursor-pointer"
+                  width="22"
+                  src="/icons/eye.png"
+                  alt=""
+                />
+              </span>
             </div>
           </div>
           <button className="flex rounded-full border bg-red-400 border-red-500 w-fit justify-center items-center py-1 px-3 hover:bg-red-300 gap-2 m-3">

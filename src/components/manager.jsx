@@ -4,6 +4,7 @@ import { useRef, useState, useEffect } from "react";
 
 const Manager = () => {
   const ref = useRef();
+  const passwordRef = useRef();
   const [form, setform] = useState({ site: "", username: "", password: "" });
   const [passwordsArray, setPasswordsArray] = useState([]);
 
@@ -16,16 +17,22 @@ const Manager = () => {
   }, []);
   const showPassword = () => {
     // alert("password was shown");
+    passwordRef.current.type = "text";
     if (ref.current.src.includes("icons/hidden.png")) {
       ref.current.src = "icons/eye.png";
+      passwordRef.current.type = "password";
     } else {
       ref.current.src = "icons/hidden.png";
     }
   };
   const savePassword = () => {
     // console.log(form);
+
     setPasswordsArray([...passwordsArray, form]);
-    localStorage.setItem("passwords", JSON.stringify([...passwordsArray, form]));
+    localStorage.setItem(
+      "passwords",
+      JSON.stringify([...passwordsArray, form])
+    );
     console.log(...passwordsArray, form);
   };
   const handleChange = (e) => {
@@ -65,9 +72,10 @@ const Manager = () => {
             />
             <div className="relative">
               <input
+                ref={passwordRef}
                 value={form.password}
                 onChange={handleChange}
-                type="text"
+                type="password"
                 name="password"
                 placeholder="Enter Password"
                 className="border  border-red-400 m-2 w-full rounded-full px-4 py-1"
@@ -115,7 +123,9 @@ const Manager = () => {
                   return (
                     <tr key={index}>
                       <td className="text-center min-w-32 py-1 border border-white">
-                       <a href={item.site} target="_blank">{item.site}</a> 
+                        <a href={item.site} target="_blank">
+                          {item.site}
+                        </a>
                       </td>
                       <td className="text-center min-w-32 py-1 border border-white">
                         {item.username}

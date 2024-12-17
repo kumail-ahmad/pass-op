@@ -5,7 +5,7 @@ import App from "./App.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
 import Manager from "./components/manager.jsx";
-import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 
 createRoot(document.getElementById("root")).render(

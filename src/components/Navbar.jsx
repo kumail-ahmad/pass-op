@@ -26,13 +26,13 @@ const Navbar = () => {
             </div>
           </a>
           <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
-            <Link to="/" className="mr-5 hover:text-gray-900">
+            <Link to="https://github.com/kumail-ahmad" target="_blank" className="mr-5 hover:text-gray-900">
               Github
             </Link>
             <Link to="/linkedin" className="mr-5 hover:text-gray-900">
               LinkedIn
             </Link>
-            <Link to="/routes" className="mr-5 hover:text-gray-900">
+            <Link to="/about" className="mr-5 hover:text-gray-900">
               About
             </Link>
           </nav>

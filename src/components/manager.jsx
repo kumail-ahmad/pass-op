@@ -97,33 +97,36 @@ const Manager = () => {
           </button>
         </div>
         <div className="passwords">
-          <h2>Your passwords</h2>
-          <table className="table-auto">
-            <thead>
+          <h2 className="font-bold text-xl py-4">Your passwords</h2>
+         { passwordsArray.length===0 && <div> No passwords to show !! Add some passwords </div>}
+         { passwordsArray.length !=0 && 
+          <table className="table-auto w-full  rounded-md overflow-hidden">
+            <thead className=" bg-red-400 text-white">
               <tr>
-                <th>Song</th>
-                <th>Artist</th>
-                <th>Year</th>
+                <th className="text-center min-w-32 py-2">Site</th>
+                <th className="text-center min-w-32 py-2">Username</th>
+                <th className="text-center min-w-32 py-2">Passwords</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="bg-red-50">
               <tr>
-                <td>The Sliding Mr. Bones </td>
-                <td>Malcolm Lockyer</td>
-                <td>1961</td>
+                <td className="text-center min-w-32 py-1 border border-white">The Sliding Mr. Bones </td>
+                <td className="text-center min-w-32 py-1 border border-white">Malcolm Lockyer</td>
+                <td className="text-center min-w-32 py-1 border border-white">1961</td>
               </tr>
               <tr>
-                <td>Witchy Woman</td>
-                <td>The Eagles</td>
-                <td>1972</td>
+                <td className="text-center min-w-32 py-1 border border-white">Witchy Woman</td>
+                <td className="text-center min-w-32 py-1 border border-white">The Eagles</td>
+                <td className="text-center min-w-32 py-1 border border-white">1972</td>
               </tr>
               <tr>
-                <td>Shining Star</td>
-                <td>Earth, Wind, and Fire</td>
-                <td>1975</td>
+                <td className="text-center min-w-32 py-1 border border-white">Shining Star</td>
+                <td className="text-center min-w-32 py-1 border border-white">Earth, Wind, and Fire</td>
+                <td className="text-center min-w-32 py-1 border border-white">1975</td>
               </tr>
             </tbody>
           </table>
+          }
         </div>
       </div>
     </>

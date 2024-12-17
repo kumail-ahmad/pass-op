@@ -98,35 +98,37 @@ const Manager = () => {
         </div>
         <div className="passwords">
           <h2 className="font-bold text-xl py-4">Your passwords</h2>
-         { passwordsArray.length===0 && <div> No passwords to show !! Add some passwords </div>}
-         { passwordsArray.length !=0 && 
-          <table className="table-auto w-full  rounded-md overflow-hidden">
-            <thead className=" bg-red-400 text-white">
-              <tr>
-                <th className="text-center min-w-32 py-2">Site</th>
-                <th className="text-center min-w-32 py-2">Username</th>
-                <th className="text-center min-w-32 py-2">Passwords</th>
-              </tr>
-            </thead>
-            <tbody className="bg-red-50">
-              <tr>
-                <td className="text-center min-w-32 py-1 border border-white">The Sliding Mr. Bones </td>
-                <td className="text-center min-w-32 py-1 border border-white">Malcolm Lockyer</td>
-                <td className="text-center min-w-32 py-1 border border-white">1961</td>
-              </tr>
-              <tr>
-                <td className="text-center min-w-32 py-1 border border-white">Witchy Woman</td>
-                <td className="text-center min-w-32 py-1 border border-white">The Eagles</td>
-                <td className="text-center min-w-32 py-1 border border-white">1972</td>
-              </tr>
-              <tr>
-                <td className="text-center min-w-32 py-1 border border-white">Shining Star</td>
-                <td className="text-center min-w-32 py-1 border border-white">Earth, Wind, and Fire</td>
-                <td className="text-center min-w-32 py-1 border border-white">1975</td>
-              </tr>
-            </tbody>
-          </table>
-          }
+          {passwordsArray.length === 0 && (
+            <div> No passwords to show !! Add some passwords </div>
+          )}
+          {passwordsArray.length != 0 && (
+            <table className="table-auto w-full  rounded-md overflow-hidden">
+              <thead className=" bg-red-400 text-white">
+                <tr>
+                  <th className="text-center min-w-32 py-2">Site</th>
+                  <th className="text-center min-w-32 py-2">Username</th>
+                  <th className="text-center min-w-32 py-2">Passwords</th>
+                </tr>
+              </thead>
+              <tbody className="bg-red-50">
+                {passwordsArray.map((item, index) => {
+                  return (
+                    <tr key={index}>
+                      <td className="text-center min-w-32 py-1 border border-white">
+                       <a href={item.site} target="_blank">{item.site}</a> 
+                      </td>
+                      <td className="text-center min-w-32 py-1 border border-white">
+                        {item.username}
+                      </td>
+                      <td className="text-center min-w-32 py-1 border border-white">
+                        {item.password}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          )}
         </div>
       </div>
     </>

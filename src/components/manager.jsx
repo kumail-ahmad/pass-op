@@ -38,15 +38,18 @@ const Manager = () => {
     [...passwordsArray, { ...form, id: uuidv4() }];
   };
 
-  const deletePassword = () => {
-    // console.log(form);
-    // setPasswordsArray([...passwordsArray, {...form, id:uuidv4()}]);
-    // localStorage.setItem(
-    //   "passwords",
-    //   JSON.stringify([...passwordsArray, form])
-    // );
-    // console.log(...passwordsArray, form);
+  const deletePassword = (id) => {
+    let resp = confirm("Are you sure , to delete the password");
+    if (resp == true) {
+      setPasswordsArray(passwordsArray.filter((item) => item.id !== id));
+      localStorage.setItem(
+        "passwords",
+        JSON.stringify(passwordsArray.filter((item) => item.id !== id))
+      );
+    }
   };
+
+  const editPassword = (id) => {};
 
   const handleChange = (e) => {
     setform({ ...form, [e.target.name]: e.target.value });
@@ -190,7 +193,11 @@ const Manager = () => {
                         {item.password}
                       </td>
                       <td className="4 text-center min-w-32 py-1 border border-white">
-                        <span>
+                        <span
+                          onClick={() => {
+                            editPassword(item.id);
+                          }}
+                        >
                           <lord-icon
                             src="https://cdn.lordicon.com/exymduqj.json"
                             trigger="hover"
@@ -199,13 +206,20 @@ const Manager = () => {
                             style={{ width: "25px", height: "25px" }}
                           ></lord-icon>
                         </span>
-                        <lord-icon
-                          src="https://cdn.lordicon.com/hwjcdycb.json"
-                          trigger="hover"
-                          colors="primary:#242424,secondary:#e83a30"
-                          style={{ width: "25px", height: "25px" }}
-                        ></lord-icon>
-                        <span></span>
+
+                        <span
+                          onClick={() => {
+                            deletePassword(item.id);
+                          }}
+                        >
+                          {" "}
+                          <lord-icon
+                            src="https://cdn.lordicon.com/hwjcdycb.json"
+                            trigger="hover"
+                            colors="primary:#242424,secondary:#e83a30"
+                            style={{ width: "25px", height: "25px" }}
+                          ></lord-icon>
+                        </span>
                       </td>
                     </tr>
                   );

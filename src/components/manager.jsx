@@ -28,11 +28,7 @@ const Manager = () => {
   };
 
   const savePassword = () => {
-    // console.log(form);
-    // if (!form.site || !form.username || !form.password) {
-    //   alert("All fields are required!");
-    //   return;
-    // }
+   
 
     setPasswordsArray([...passwordsArray, { ...form, id: uuidv4() }]);
     localStorage.setItem(
@@ -41,6 +37,16 @@ const Manager = () => {
     );
     console.log([...passwordsArray, { ...form, id: uuidv4() }]);
     setform({ site: "", username: "", password: "" });
+    toast.success("Password Saved 🦄", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   };
 
   const deletePassword = (id) => {
@@ -52,7 +58,7 @@ const Manager = () => {
         JSON.stringify(passwordsArray.filter((item) => item.id !== id))
       ),
         toast.success("Password deleted successfully 🦄", {
-          position: "top-center",
+          position: "top-right",
           autoClose: 2000,
           hideProgressBar: false,
           closeOnClick: true,
@@ -75,7 +81,7 @@ const Manager = () => {
 
   const copytext = (text) => {
     toast.success(" Copied Succesfully 🦄", {
-      position: "top-center",
+      position: "top-right",
       autoClose: 3000,
       hideProgressBar: false,
       closeOnClick: true,

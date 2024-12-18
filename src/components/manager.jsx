@@ -1,7 +1,7 @@
 // import React from "react";
 
 import { useRef, useState, useEffect } from "react";
-
+import { ToastContainer, toast } from "react-toastify";
 const Manager = () => {
   const ref = useRef();
   const passwordRef = useRef();
@@ -38,9 +38,35 @@ const Manager = () => {
   const handleChange = (e) => {
     setform({ ...form, [e.target.name]: e.target.value });
   };
-
+  const copytext = (text) => {
+    toast.success(" Copied Succesfully 🦄", {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      // transition: Bounce,
+    });
+    navigator.clipboard.writeText(text);
+  };
   return (
     <>
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        // transition={Bounce}
+      />
       <div className="absolute top-0 z-[-2] h-screen w-screen rotate-180 transform bg-white bg-[radial-gradient(70%_120%_at_50%_50%,hsla(0,0%,100%,0)_0,rgba(262,205,258,.5)_100%)]"></div>
 
       <div className=" bg-red-100 mx-auto mycontainer  my-2 ">
@@ -136,9 +162,9 @@ const Manager = () => {
                           src="icons/copy.png"
                           alt="Copy"
                           className="cursor-pointer"
-                          onClick={() =>
-                            navigator.clipboard.writeText(item.site)
-                          }
+                          onClick={() => {
+                            copytext(item.site);
+                          }}
                         />
                       </td>
 

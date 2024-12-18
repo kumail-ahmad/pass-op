@@ -29,6 +29,10 @@ const Manager = () => {
 
   const savePassword = () => {
     // console.log(form);
+    // if (!form.site || !form.username || !form.password) {
+    //   alert("All fields are required!");
+    //   return;
+    // }
 
     setPasswordsArray([...passwordsArray, { ...form, id: uuidv4() }]);
     localStorage.setItem(
@@ -49,7 +53,10 @@ const Manager = () => {
     }
   };
 
-  const editPassword = (id) => {};
+  const editPassword = (id) => {
+    setform(passwordsArray.filter((i) => i.id === id)[0]);
+    setPasswordsArray(passwordsArray.filter((item) => item.id !== id));
+  };
 
   const handleChange = (e) => {
     setform({ ...form, [e.target.name]: e.target.value });

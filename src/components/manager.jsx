@@ -142,13 +142,14 @@ const Manager = () => {
                   <th className="text-center min-w-32 py-2">Site</th>
                   <th className="text-center min-w-32 py-2">Username</th>
                   <th className="text-center min-w-32 py-2">Passwords</th>
+                  <th className="text-center min-w-32 py-2">Actions</th>
                 </tr>
               </thead>
               <tbody className="bg-red-50">
                 {passwordsArray.map((item, index) => {
                   return (
                     <tr key={index}>
-                      <td className="flex items-center justify-center text-center min-w-32 py-1 border border-white">
+                      <td className="1 flex items-center justify-center text-center min-w-32 py-1 border border-white">
                         <a
                           href={item.site}
                           target="_blank"
@@ -168,13 +169,17 @@ const Manager = () => {
                         />
                       </td>
 
-                      <td className="text-center min-w-32 py-1 border border-white">
+                      <td className="2 text-center min-w-32 py-1 border border-white">
                         {item.username}
                       </td>
-                      <td className="text-center min-w-32 py-1 border border-white">
+                      <td className="3 text-center min-w-32 py-1 border border-white">
                         {item.password}
                       </td>
+                      <td className="4 text-center min-w-32 py-1 border border-white">
+                        Delete
+                      </td>
                     </tr>
+                    
                   );
                 })}
               </tbody>

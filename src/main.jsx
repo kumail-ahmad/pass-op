@@ -9,7 +9,7 @@ import { BrowserRouter } from "react-router-dom";
 
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
+  // <StrictMode>
     <BrowserRouter>
       <div className=" flex flex-col min-h-screen">
         <header>
@@ -24,5 +24,5 @@ createRoot(document.getElementById("root")).render(
         </footer>
       </div>
     </BrowserRouter>
-  </StrictMode>
+  // </StrictMode>
 );

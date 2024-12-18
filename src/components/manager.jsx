@@ -122,11 +122,26 @@ const Manager = () => {
                 {passwordsArray.map((item, index) => {
                   return (
                     <tr key={index}>
-                      <td className="text-center min-w-32 py-1 border border-white">
-                        <a href={item.site} target="_blank">
+                      <td className="flex items-center justify-center text-center min-w-32 py-1 border border-white">
+                        <a
+                          href={item.site}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mr-2"
+                        >
                           {item.site}
                         </a>
+                        <img
+                          width="20"
+                          src="icons/copy.png"
+                          alt="Copy"
+                          className="cursor-pointer"
+                          onClick={() =>
+                            navigator.clipboard.writeText(item.site)
+                          }
+                        />
                       </td>
+
                       <td className="text-center min-w-32 py-1 border border-white">
                         {item.username}
                       </td>

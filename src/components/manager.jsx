@@ -2,6 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import { v4 as uuidv4 } from "uuid";
 const Manager = () => {
   const ref = useRef();
   const passwordRef = useRef();
@@ -25,19 +26,32 @@ const Manager = () => {
       ref.current.src = "icons/hidden.png";
     }
   };
+
   const savePassword = () => {
     // console.log(form);
 
-    setPasswordsArray([...passwordsArray, form]);
+    setPasswordsArray([...passwordsArray, { ...form, id: uuidv4() }]);
     localStorage.setItem(
       "passwords",
-      JSON.stringify([...passwordsArray, form])
+      JSON.stringify([...passwordsArray, { ...form, id: uuidv4() }])
     );
-    console.log(...passwordsArray, form);
+    [...passwordsArray, { ...form, id: uuidv4() }];
   };
+
+  const deletePassword = () => {
+    // console.log(form);
+    // setPasswordsArray([...passwordsArray, {...form, id:uuidv4()}]);
+    // localStorage.setItem(
+    //   "passwords",
+    //   JSON.stringify([...passwordsArray, form])
+    // );
+    // console.log(...passwordsArray, form);
+  };
+
   const handleChange = (e) => {
     setform({ ...form, [e.target.name]: e.target.value });
   };
+
   const copytext = (text) => {
     toast.success(" Copied Succesfully 🦄", {
       position: "top-center",
@@ -176,10 +190,24 @@ const Manager = () => {
                         {item.password}
                       </td>
                       <td className="4 text-center min-w-32 py-1 border border-white">
-                        Delete
+                        <span>
+                          <lord-icon
+                            src="https://cdn.lordicon.com/exymduqj.json"
+                            trigger="hover"
+                            state="hover-line"
+                            colors="primary:#242424,secondary:#e83a30"
+                            style={{ width: "25px", height: "25px" }}
+                          ></lord-icon>
+                        </span>
+                        <lord-icon
+                          src="https://cdn.lordicon.com/hwjcdycb.json"
+                          trigger="hover"
+                          colors="primary:#242424,secondary:#e83a30"
+                          style={{ width: "25px", height: "25px" }}
+                        ></lord-icon>
+                        <span></span>
                       </td>
                     </tr>
-                    
                   );
                 })}
               </tbody>

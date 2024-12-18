@@ -40,17 +40,27 @@ const Manager = () => {
       JSON.stringify([...passwordsArray, { ...form, id: uuidv4() }])
     );
     console.log([...passwordsArray, { ...form, id: uuidv4() }]);
-    setform({ site: "", username: "", password: "" })
+    setform({ site: "", username: "", password: "" });
   };
 
   const deletePassword = (id) => {
     let resp = confirm("Are you sure , to delete the password");
-    if (resp == true) {
+    if (resp) {
       setPasswordsArray(passwordsArray.filter((item) => item.id !== id));
       localStorage.setItem(
         "passwords",
         JSON.stringify(passwordsArray.filter((item) => item.id !== id))
-      );
+      ),
+        toast.success("Password deleted successfully 🦄", {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
     }
   };
 

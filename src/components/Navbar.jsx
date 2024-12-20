@@ -26,10 +26,18 @@ const Navbar = () => {
             </div>
           </a>
           <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
-            <Link to="https://github.com/kumail-ahmad" target="_blank" className="mr-5 hover:text-gray-900">
+            <Link
+              to="https://github.com/kumail-ahmad"
+              target="_blank"
+              className="mr-5 hover:text-gray-900"
+            >
               Github
             </Link>
-            <Link to="/linkedin" className="mr-5 hover:text-gray-900">
+            <Link
+              to="https://www.linkedin.com/in/kumail-ahmad-a3035b15b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+              target="_blank"
+              className="mr-5 hover:text-gray-900"
+            >
               LinkedIn
             </Link>
             <Link to="/about" className="mr-5 hover:text-gray-900">

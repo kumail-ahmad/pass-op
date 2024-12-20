@@ -51,7 +51,16 @@ const Manager = () => {
         theme: "light",
       });
     } else {
-      toast("Error:-Password Not saved");
+      toast("Error: Password Not saved", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     }
   };
   const deletePassword = (id) => {
@@ -113,7 +122,7 @@ const Manager = () => {
         theme="light"
         // transition={Bounce}
       />
-      <div className="absolute top-0 z-[-2] h-screen w-screen rotate-180 transform bg-white bg-[radial-gradient(70%_120%_at_50%_50%,hsla(0,0%,100%,0)_0,rgba(262,205,258,.5)_100%)]"></div>
+      <div className="absolute top-0 z-[-2] h-[50vh] w-[50vw] rotate-180 transform bg-white bg-[radial-gradient(70%_120%_at_50%_50%,hsla(0,0%,100%,0)_0,rgba(262,205,258,.5)_100%)]"></div>
 
       <div className=" bg-red-100 mx-auto mycontainer p-2 md:p-0 my-2 ">
         <h1 className="text-4xl text font-bold text-center">
@@ -206,7 +215,7 @@ const Manager = () => {
                 <tbody className="bg-red-50 rounded-b-lg">
                   {passwordsArray.map((item, index) => (
                     <tr key={index}>
-                      <td className="text-center px-2 py-1 border gap-3 flex">
+                      <td className="text-center px-2 py-1 border items-end gap-3 flex">
                         <a
                           href={item.site}
                           target="_blank"

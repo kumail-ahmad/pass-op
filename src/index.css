@@ -6,6 +6,6 @@
 
 @layer components {
   .mycontainer {
-    @apply mx-auto container px-80 py-16
+    @apply mx-auto container px-60 py-14
   }
 }

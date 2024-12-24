@@ -192,7 +192,7 @@ const Manager = () => {
                 src="https://cdn.lordicon.com/sbnjyzil.json"
                 trigger="hover"
               ></lord-icon>
-              Add Password
+              Add Password.
             </button>
           </div>
         </div>

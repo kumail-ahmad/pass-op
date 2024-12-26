@@ -131,7 +131,7 @@ const Manager = () => {
           <span className="text-red-800">OP /&gt;</span>
         </h1>
         <p className="text-red-700 text-lg font-bold text-center">
-          Your own password manager
+          Your own Password manager
         </p>
         <div className="flex flex-col gap-4 sm:flex-col md:flex-row md:gap-2 w-full justify-center items-center">
           <div className="flex flex-col gap-4 w-full items-center">

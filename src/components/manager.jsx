@@ -192,14 +192,14 @@ const Manager = () => {
                 src="https://cdn.lordicon.com/sbnjyzil.json"
                 trigger="hover"
               ></lord-icon>
-              Add  Password
+              Add Password
             </button>
           </div>
         </div>
         <div className="passwords">
           <h2 className="font-bold text-xl py-4">Your passwords</h2>
           {passwordsArray.length === 0 && (
-            <div>No passwords to show! Add some passwords.</div>
+            <div>No passwords to show!! Add some passwords.</div>
           )}
           {passwordsArray.length !== 0 && (
             <div className="overflow-x-auto w-full">

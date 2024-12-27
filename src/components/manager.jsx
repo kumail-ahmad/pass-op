@@ -97,8 +97,8 @@ const Manager = () => {
     toast.success(" Copied Succesfully 🦄", {
       position: "top-right",
       autoClose: 3000,
-      hideProgressBar: false,
       closeOnClick: true,
+      hideProgressBar: false,
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
